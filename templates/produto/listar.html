@@ -16,15 +16,15 @@
 
 {% block content %}
     <div class='container-fluid'>
-        <div class="row" style="margin-top: 6%;">
-            <div class="col-sm-8 loja-colecao">
+        <div class="row" style="margin-top: 6%; margin-left: 3vw">
+            <div class="col-sm-8 loja-colecao" style='margin-top:-50px'>
                 <div class="loja-item">
                     <div class="row">
                         
                         {% for produto in lista_produtos %}
 
-                        <div class="col-md-4">
-                            <div class="thumbnail d-flex flex-column align-items-center" style="width: 200px;">
+                        <div class="col-md-3" style='margin-top:50px;'>
+                            <div class="thumbnail d-flex flex-column justify-content-center align-items-center" style="width: 220px;height:300px; border: 3px solid black; padding: 10px; border-radius: 10px; background-color: white">
                                 <a href="{{ produto.get_absolute_url }}" >
                                     <img src="
                                     {% if produto.imagem %}
@@ -33,7 +33,7 @@
                                         {% static 'img.default.jpg' %}
                                     {% endif %}
                                         " alt="Imagem de {{ produto.nome }}"
-                                        style="height: 130px; width: auto" class="container">
+                                        style="width: 150px !important; height: 150px !important; box-shadow: 0em 0.5em 0.5em #6f42c1aa; object-fit: contain; margin:0; border: 0;" class="container">
                                 </a>
                                 <br>
                                 <div class="caption">
@@ -56,22 +56,51 @@
                 </div>
             </div>
             <div class="col-sm-3 col-sm-offset-1 loja-sidebar">
-                <div class="sidebar-module">
+                <div class="sidebar-module" style='margin-top:50px'>
                     <h4>Categorias</h4>
                     <ol class="list-unstyled">
                         <li {% if not categoria %} class='active' {% endif %}>
                             <a href="{% url 'main:listar_produtos' %}">Todos</a>
                         </li>
-                        {% for c in lista_categorias %}
-                        <li {% if categoria.slug == c.slug %}
-                         print (c.slug)
-                         class="active"
-                         {% endif %}>
-                         <a href="{{ c.get_absolute_url }}">
-                            {{ c.nome }}
-                         </a>
-                        </li>
-                        {% endfor %}
+                        <ol class="list-unstyled">
+                            
+                            <li class="active">
+                             <a href="/produtos/alimentos/">
+                                Alimentos
+                             </a>
+                            </li>
+                            
+                            <li class="active">
+                             <a href="/produtos/alimentos-industrializados/">
+                                Alimentos Industrializados
+                             </a>
+                            </li>
+                            
+                            <li class="active">
+                             <a href="/produtos/alimentos-naturais/">
+                                Alimentos Naturais
+                             </a>
+                            </li>
+                            
+                            <li class="active">
+                             <a href="/produtos/artigos-esportivos/">
+                                Artigos Esportivos
+                             </a>
+                            </li>
+                            
+                            <li class="active">
+                             <a href="/produtos/equipamentos-industriais/">
+                                Equipamentos Industriais
+                             </a>
+                            </li>
+                            
+                            <li class="active">
+                             <a href="/produtos/informatica/">
+                                Informática
+                             </a>
+                            </li>
+                            
+                        </ol>
                     </ol>
                 </div>
             </div>
@@ -79,4 +108,3 @@
     </div>
 
 {% endblock content %}
-    

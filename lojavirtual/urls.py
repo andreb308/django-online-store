@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ajuda/', views.ajuda, name="ajuda"),
     path('fale_conosco/', views.ViewFaleConosco.as_view(), name="fale_conosco"),
+    path('', include('carrinho.urls', namespace='carrinho')),
     path('', include('main.urls', namespace='main')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

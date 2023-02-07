@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'main.apps.MainConfig'
+    'main.apps.MainConfig',
+    # 'carrinho.apps.CarrinhoConfig'
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'imagens-produtos')
+
+SESSION_COOKIE_AGE = 1209600
+
+ID_CARRINHO ='carrinho'
