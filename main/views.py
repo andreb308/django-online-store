@@ -32,6 +32,9 @@ def listar_produtos(request, slug_categoria=None):
     categoria = None
     lista_categorias = Categoria.objects.all()
     lista_produtos = Produto.objects.filter(disponivel=True)
+    contexto = {
+            'lista_produtos': lista_produtos,
+        }
     if slug_categoria:
         categoria = get_object_or_404(Categoria, slug=slug_categoria)
         lista_produtos = Produto.objects.filter(categoria=categoria)

@@ -1,15 +1,13 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
+<div class="container">
+  <h2>Fale Conosco</h2>
+  <p>Envie-nos uma mensagem!</p>
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
 
-    <center><h2>Fale Conosco</h2>
-    <p>Envie-nos uma mensagem!</p>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
-</center>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
 
 {% endblock content %}
